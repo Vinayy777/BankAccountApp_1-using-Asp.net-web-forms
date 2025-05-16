@@ -10,7 +10,7 @@ namespace BankAccountApp_1
     {
         public string Owner { get; set; }
         public Guid AccountNumber{ get; set; }
-        public decimal Balance { get; private set; }
+        public decimal Balance { get;private set; }
 
         public BankAccount(string Owner) 
         {
@@ -19,7 +19,7 @@ namespace BankAccountApp_1
             Balance = 0;
         
         }
-        public string GetBalance(decimal Balance) 
+        public string deposit(decimal Balance) 
         {
          if(Balance <= 0) 
                 return "u cant deposit " + Balance;
@@ -30,7 +30,17 @@ namespace BankAccountApp_1
 
             return "Amount deposited successfully";
         }
+        public string withdraw(decimal Balance)
+        {
+            if (Balance <= 0)
+                return "u cant withdraw -Ve amount " + Balance;
+            else if ( Balance > this.Balance)
+                return "u cant withdarw out of range " + Balance;
+            else
+                this.Balance += Balance;
 
-       
+            return "Amount withdrawn successfully";
+        }
+
     }
 }

@@ -47,16 +47,21 @@ namespace BankAccountApp_1
 
         private void createaccountBtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox1.Text))
+            string input = textBox1.Text.Trim();
+
+            // Check if input is empty or an integer
+            if (string.IsNullOrEmpty(input) || int.TryParse(input, out _))
+            {
+                MessageBox.Show("Please enter a valid non-numeric account name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
-            BankAccount bankAccount1 = new BankAccount(textBox1.Text);
+            }
+
+            BankAccount bankAccount1 = new BankAccount(input);
             bankAccounts.Add(bankAccount1);
             RefrishGrid();
             textBox1.Text = "";
-
-
-
         }
+
 
         private void RefrishGrid()
         {
@@ -73,7 +78,7 @@ namespace BankAccountApp_1
             if (BankAccountGrid.SelectedRows.Count == 1 && AmountNum.Value > 0)
             {
                 BankAccount selectedRow = BankAccountGrid.SelectedRows[0].DataBoundItem as BankAccount;
-                selectedRow.Balance += AmountNum.Value;
+                selectedRow.deposit(AmountNum.Value);
                 RefrishGrid();
                 AmountNum.Value = 0;
 
@@ -90,14 +95,14 @@ namespace BankAccountApp_1
             if (BankAccountGrid.SelectedRows.Count == 1 && AmountNum.Value > 0)
             {
                 BankAccount selectedRow = BankAccountGrid.SelectedRows[0].DataBoundItem as BankAccount;
-                selectedRow.GetBalance(AmountNum.Value);
+                selectedRow.withdraw(AmountNum.Value);
                 RefrishGrid();
                 AmountNum.Value = 0;
 
             }
             else
             {
-                MessageBox.Show("selected one row and enter +ve amount");
+                MessageBox.Show("selected one row and withdraw few amount");
             }
         }
     }
