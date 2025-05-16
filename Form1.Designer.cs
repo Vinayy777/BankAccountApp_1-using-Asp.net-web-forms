@@ -70,6 +70,8 @@
             // AmountNum
             // 
             AmountNum.Location = new Point(145, 390);
+            AmountNum.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
+            AmountNum.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             AmountNum.Name = "AmountNum";
             AmountNum.Size = new Size(120, 39);
             AmountNum.TabIndex = 3;
@@ -92,6 +94,7 @@
             createaccountBtn.TabIndex = 5;
             createaccountBtn.Text = "Create Account";
             createaccountBtn.UseVisualStyleBackColor = true;
+            createaccountBtn.Click += createaccountBtn_Click;
             // 
             // depositBtn
             // 
@@ -101,6 +104,7 @@
             depositBtn.TabIndex = 6;
             depositBtn.Text = "Deposit";
             depositBtn.UseVisualStyleBackColor = true;
+            depositBtn.Click += depositBtn_Click;
             // 
             // withdrawBtn
             // 
@@ -110,6 +114,7 @@
             withdrawBtn.TabIndex = 7;
             withdrawBtn.Text = "Withdraw";
             withdrawBtn.UseVisualStyleBackColor = true;
+            withdrawBtn.Click += withdrawBtn_Click;
             // 
             // ownerText
             // 

@@ -10,6 +10,27 @@ namespace BankAccountApp_1
     {
         public string Owner { get; set; }
         public Guid AccountNumber{ get; set; }
-        public decimal Balance { get; set; }
+        public decimal Balance { get; private set; }
+
+        public BankAccount(string Owner) 
+        {
+            this.Owner =Owner;
+            this.AccountNumber = Guid.NewGuid();
+            Balance = 0;
+        
+        }
+        public string GetBalance(decimal Balance) 
+        {
+         if(Balance <= 0) 
+                return "u cant deposit " + Balance;
+            else if(Balance >9999)
+                return "u cant deposit out of range " + Balance;
+         else 
+                this.Balance += Balance;
+
+            return "Amount deposited successfully";
+        }
+
+       
     }
 }
