@@ -7,7 +7,7 @@ namespace BankAccountApp_1
         {
             InitializeComponent();
             /*
-             * this all arehard coded 
+             * this all are hard coded 
              * BankAccount bankAccount1 = new BankAccount("Vinay");
               //bankAccount1.Owner = "Vinay";
               //bankAccount1.AccountNumber = Guid.NewGuid();
@@ -18,7 +18,7 @@ namespace BankAccountApp_1
               //bankAccount2.AccountNumber = Guid.NewGuid();
               //bankAccount2.Balance = 2120;
 
-              // these are hard coded value which is gown on in this class constructor and assigning value to field
+              // these are hard coded value which is going on in this class constructor and assigning value to field
               BankAccount bankAccount3 = new BankAccount("Sakshi");
               //bankAccount3.Owner = "Sakshi";
               //bankAccount3.AccountNumber = Guid.NewGuid();
@@ -49,8 +49,8 @@ namespace BankAccountApp_1
         {
             if (string.IsNullOrEmpty(textBox1.Text))
                 return;
-            BankAccount bankAccount3 = new BankAccount(textBox1.Text);
-            bankAccounts.Add(bankAccount3);
+            BankAccount bankAccount1 = new BankAccount(textBox1.Text);
+            bankAccounts.Add(bankAccount1);
             RefrishGrid();
             textBox1.Text = "";
 
