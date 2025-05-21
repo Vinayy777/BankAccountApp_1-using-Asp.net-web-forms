@@ -56,10 +56,17 @@ namespace BankAccountApp_1
                 return;
             }
 
-            BankAccount bankAccount1 = new BankAccount(input);
-            bankAccounts.Add(bankAccount1);
+            if (interestRatenum.Value > 0)
+                // short way
+             bankAccounts.Add(new SavingAccount(input, interestRatenum.Value));
+            
+            else
+              bankAccounts.Add(new BankAccount(input));
+
+             
             RefrishGrid();
             textBox1.Text = "";
+            interestRatenum.Value = 0;
         }
 
 
