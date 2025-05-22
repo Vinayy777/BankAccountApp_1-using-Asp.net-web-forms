@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace BankAccountApp_1
 {
-    internal class BankAccount
+    public class BankAccount
     {
+        // fiels or u can say variable holds value
         public string Owner { get; set; }
         public Guid AccountNumber{ get; set; }
-        public decimal Balance { get;private set; }
+        public decimal Balance { get;protected set; }
 
+        // constructor
         public BankAccount(string Owner) 
         {
             this.Owner =Owner;
@@ -19,7 +21,12 @@ namespace BankAccountApp_1
             Balance = 0;
         
         }
-        public string deposit(decimal Balance) 
+        // incaptulazation concept here applying likr if any body 
+        // wants to access properties than need to follow condition which wriiten inside this function
+
+        // also making it virtual because this () inherit in derived class where it will not called instead its derived ()
+        // wiil call because that has diifereent logic compare to this.
+        public virtual string deposit(decimal Balance) 
         {
          if(Balance <= 0) 
                 return "u cant deposit " + Balance;
@@ -30,14 +37,15 @@ namespace BankAccountApp_1
 
             return "Amount deposited successfully";
         }
-        public string withdraw(decimal Balance)
+       // same here
+        public virtual string withdraw(decimal Balance)
         {
             if (Balance <= 0)
                 return "u cant withdraw -Ve amount " + Balance;
             else if ( Balance > this.Balance)
                 return "u cant withdarw out of range " + Balance;
             else
-                this.Balance += Balance;
+                this.Balance -= Balance;
 
             return "Amount withdrawn successfully";
         }

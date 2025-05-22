@@ -36,8 +36,11 @@
             createaccountBtn = new Button();
             depositBtn = new Button();
             withdrawBtn = new Button();
+            label3 = new Label();
+            interestRatenum = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)AmountNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BankAccountGrid).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)interestRatenum).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -88,7 +91,7 @@
             // 
             // createaccountBtn
             // 
-            createaccountBtn.Location = new Point(129, 137);
+            createaccountBtn.Location = new Point(129, 238);
             createaccountBtn.Name = "createaccountBtn";
             createaccountBtn.Size = new Size(283, 66);
             createaccountBtn.TabIndex = 5;
@@ -116,11 +119,29 @@
             withdrawBtn.UseVisualStyleBackColor = true;
             withdrawBtn.Click += withdrawBtn_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(23, 147);
+            label3.Name = "label3";
+            label3.Size = new Size(187, 32);
+            label3.TabIndex = 8;
+            label3.Text = "InterestRate (%):";
+            // 
+            // interestRatenum
+            // 
+            interestRatenum.Location = new Point(290, 145);
+            interestRatenum.Name = "interestRatenum";
+            interestRatenum.Size = new Size(122, 39);
+            interestRatenum.TabIndex = 9;
+            // 
             // ownerText
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1040, 576);
+            Controls.Add(interestRatenum);
+            Controls.Add(label3);
             Controls.Add(withdrawBtn);
             Controls.Add(depositBtn);
             Controls.Add(createaccountBtn);
@@ -135,6 +156,7 @@
             Text = "Owner";
             ((System.ComponentModel.ISupportInitialize)AmountNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)BankAccountGrid).EndInit();
+            ((System.ComponentModel.ISupportInitialize)interestRatenum).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -149,5 +171,7 @@
         private Button createaccountBtn;
         private Button depositBtn;
         private Button withdrawBtn;
+        private Label label3;
+        private NumericUpDown interestRatenum;
     }
 }
